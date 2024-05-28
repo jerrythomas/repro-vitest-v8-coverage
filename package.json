@@ -1,0 +1,48 @@
+{
+  "name": "repro-vitest-v8-coverage",
+  "version": "1.0.0",
+  "description": "Reproduction of a coverage issue",
+  "author": "Jerry Thomas <me@jerrythomas.name>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "src/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerrythomas/repro-vitest-v8-coverage"
+  },
+  "prettier": "@jerrythomas/prettier-config",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "test:ci": "vitest run",
+    "test:ui": "vitest --ui",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "upgrade": "pnpm upgrade --latest && pnpm test:ci",
+    "release": "pnpm publish --access public"
+  },
+  "devDependencies": {
+    "@jerrythomas/prettier-config": "^1.0.2",
+    "@types/node": "^20.12.2",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vitest/ui": "~1.6.0",
+    "jsdom": "^24.1.0",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7",
+    "vitest": "1.6.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./src/index.js",
+      "svelte": "./src/index.js"
+    }
+  }
+}

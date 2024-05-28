@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+.svelte-kit
+/package
+*.local
+coverage
+inspire
+*.log
+.turbo
+.env
+.env.*
+!.env.example
+dist
+lcov.info
+*.code-workspace
+.vercel
